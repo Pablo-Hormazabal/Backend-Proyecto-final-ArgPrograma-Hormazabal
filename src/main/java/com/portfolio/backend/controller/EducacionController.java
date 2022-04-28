@@ -27,11 +27,13 @@ public class EducacionController {
     public ResponseEntity<Educacion> obtenerEducacion(@PathVariable Long id){
         return new ResponseEntity<>(educacionService.findById(id), HttpStatus.OK);
     }
+
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/crear")
     public ResponseEntity<Educacion> crearEducacion(@RequestBody Educacion educacion){
         return new ResponseEntity<>(educacionService.save(educacion), HttpStatus.CREATED);
     }
+
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/actualizar/{id}")
     public ResponseEntity<Educacion> actualizarEducacion(@PathVariable Long id, @RequestBody Educacion educacion){
