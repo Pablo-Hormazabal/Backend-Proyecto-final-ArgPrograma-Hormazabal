@@ -24,7 +24,7 @@ public class EducacionController {
         public ResponseEntity<List<Educacion>> listarEducacion() {
             return new ResponseEntity<>(educacionService.findALL(), HttpStatus.OK);
     }
-    
+
     @GetMapping("{id}")
     public ResponseEntity<Educacion> obtenerEducacion(@PathVariable Long id){
         return new ResponseEntity<>(educacionService.findById(id), HttpStatus.OK);
@@ -55,11 +55,12 @@ public class EducacionController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<?> actualizarEducacion(@PathVariable Long id){
         educacionService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
 }
