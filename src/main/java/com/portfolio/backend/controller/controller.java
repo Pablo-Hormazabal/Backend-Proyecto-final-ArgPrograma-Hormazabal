@@ -53,7 +53,7 @@ public class controller {
         }
 
     }
-    
+
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<?> actualizarPersona(@PathVariable Long id){
