@@ -19,10 +19,12 @@ public class EducacionController {
     @Autowired
     private PersonaService personaService;
 
+
     @GetMapping("/listar")
         public ResponseEntity<List<Educacion>> listarEducacion() {
             return new ResponseEntity<>(educacionService.findALL(), HttpStatus.OK);
     }
+    
     @GetMapping("{id}")
     public ResponseEntity<Educacion> obtenerEducacion(@PathVariable Long id){
         return new ResponseEntity<>(educacionService.findById(id), HttpStatus.OK);
